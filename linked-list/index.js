@@ -1,12 +1,12 @@
-const LinkedList = require('./LinkedList')
+const LinkedList = require("./LinkedList");
 
+const example = new LinkedList();
 
-const example =  new LinkedList();
+example.addToHead("George");
+example.addToTail("Kwame");
+example.addToTail("Kumi");
+example.addToTail("Boakye");
 
-example.addToHead('George');
-example.addToTail('Kwame');
-example.addToTail('Kumi');
-example.addToTail('Boakye');
+console.log(example.checkForData("Kwabena"));
 
-
-example.printList()
+example.printList();

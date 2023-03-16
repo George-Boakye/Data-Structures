@@ -1,4 +1,4 @@
-const Node = require('./Node')
+const Node = require("./Node");
 
 class LinkedList {
   constructor() {
@@ -26,25 +26,36 @@ class LinkedList {
     }
   }
 
-  removeHead(){
+  removeHead() {
     const removedHead = this.head;
-    if(!removedHead){
-        return;
-    };
+    if (!removedHead) {
+      return;
+    }
     this.head = removedHead.getNextNode();
     return removedHead.data;
   }
 
-  printList(){
+  checkForData(data) {
     let currentNode = this.head;
-    let output= '<head> ';
 
-    while(currentNode !== null){
-        output += currentNode.data + ' ';
-        currentNode =  currentNode.getNextNode()
+    while (currentNode !== null) {
+      if (currentNode.data === data) {
+        return true
+      }
+      currentNode = currentNode.getNextNode()
     }
-    output += '<tail>'
-    console.log(output)
+  }
+
+  printList() {
+    let currentNode = this.head;
+    let output = "<head> ";
+
+    while (currentNode !== null) {
+      output += currentNode.data + " ";
+      currentNode = currentNode.getNextNode();
+    }
+    output += "<tail>";
+    console.log(output);
   }
 }
 
