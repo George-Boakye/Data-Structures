@@ -61,7 +61,7 @@ class LinkedList {
   }
 
   removeFrom(index) {
-    let removedHead;
+    let removedNode;
     let prev = this.head;
     if (index < 0 || index > this.size) {
       return;
@@ -72,11 +72,38 @@ class LinkedList {
       for (let i = 0; i < index - 1; i++) {
         prev = prev.next;
       }
-      removedHead = prev.getNextNode();
-      prev.next = removedHead.next;
+      removedNode = prev.getNextNode();
+      prev.next = removedNode.next;
       this.size--;
-      return removedHead;
+      return removedNode;
     }
+  }
+
+  removeValue(value) {
+    let prev = this.head;
+    let removeNode;
+    if (this.getSize() === 0) {
+      return null;
+    }
+    if (value === this.head.data) {
+      this.head = this.head.getNextNode();
+      this.size--;
+      return value;
+    }
+    while (prev !== null) {
+      if (prev.getNextNode() === null) {
+        return null;
+      }
+      if (prev.data === value) {
+        break;
+      }
+      prev = prev.getNextNode();
+    }
+
+    removeNode = prev.next;
+    prev.next = removeNode.getNextNode();
+    this.size--;
+    return removeNode.data;
   }
 
   checkForData(data) {
