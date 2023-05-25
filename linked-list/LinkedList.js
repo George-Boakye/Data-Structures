@@ -106,15 +106,35 @@ class LinkedList {
     return removeNode.data;
   }
 
+  reverse() {
+    let current = this.head;
+    let prev = null;
+
+    while (current) {
+      let next = current.getNextNode();
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+  }
+
   checkForData(data) {
     let currentNode = this.head;
+    let i = 0;
+
+    if (this.getSize() === 0) {
+      return -1;
+    }
 
     while (currentNode !== null) {
       if (currentNode.data === data) {
-        return true;
+        return i;
       }
       currentNode = currentNode.getNextNode();
+      i++;
     }
+    return -1;
   }
 
   printList() {
