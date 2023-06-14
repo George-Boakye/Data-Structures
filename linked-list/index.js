@@ -60,4 +60,5 @@ function swapNodes(list, data1, data2) {
 
 example.reverse();
 
+// let me = something;
 example.printList();
