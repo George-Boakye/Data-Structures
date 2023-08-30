@@ -6,15 +6,12 @@ var isValid = function (s) {
     switch (c) {
       case "(":
         stack.push(")");
-        console.log(stack);
         break;
       case "[":
         stack.push("]");
-        console.log(stack);
         break;
       case "{":
         stack.push("}");
-        console.log(stack);
         break;
       default:
         if (c !== stack.pop()) {
