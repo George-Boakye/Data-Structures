@@ -1,24 +1,15 @@
 var groupAnagrams = function (strs) {
   const hashMap = new Map();
-  const newArray = [];
 
-  function sortWord(value) {
-    return [...value].sort().join("");
-  }
-
-  for (let word of strs) {
-    let sortedWord = sortWord(word);
+  strs.forEach((word) => {
+    let sortedWord = word.split("").sort().join("");
     if (hashMap.has(sortedWord)) {
       hashMap.get(sortedWord).push(word);
     } else {
       hashMap.set(sortedWord, [word]);
     }
-  }
-
-  for (let key of hashMap.keys()) {
-    newArray.push(hashMap.get(key));
-  }
-  return newArray;
+  });
+  return Array.from(hashMap.values());
 };
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
