@@ -7,7 +7,7 @@ var findWinners = function (matches) {
   let winners = [];
   let losers = [];
 
-  for (i = 0; i < matches.length; i++) {
+  for (let i = 0; i < matches.length; i++) {
     let winner = matches[i][0];
     let loser = matches[i][1];
 
